@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Display the highest score
     function displayHighScore() {
-        highScoreDisplay.textContent = High Score: ${highestScore};
+        highScoreDisplay.textContent = `High Score: ${highestScore}`;
         highScoreDisplay.style.fontSize = '24px';
         highScoreDisplay.style.margin = '10px';
         highScoreDisplay.style.color = '#333';
@@ -53,8 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
         bubble.textContent = currentBubbleChar;
 
         const { x, y } = getRandomPosition();
-        bubble.style.left = ${x}px;
-        bubble.style.top = ${y}px;
+        bubble.style.left = `${x}px`;
+        bubble.style.top = `${y}px`;
         bubble.style.backgroundColor = getRandomColor(); // Set a random color
 
         bubbleContainer.appendChild(bubble);
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const keyPressed = event.key.toUpperCase();
         if (keyPressed === currentBubbleChar) {
             score++;
-            scoreDisplay.textContent = Score: ${score};
+            scoreDisplay.textContent = `Score: ${score}`;
             displayRandomBubble(); // Display a new random bubble
         }
     }
@@ -74,10 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function startTimer() {
         timerInterval = setInterval(() => {
             timeLeft--;
-            timerDisplay.textContent = Time left: ${timeLeft}s;
+            timerDisplay.textContent = `Time left: ${timeLeft}s`;
             if (timeLeft <= 0) {
                 clearInterval(timerInterval);
-                finalScoreDisplay.textContent = Final Score: ${score};
+                finalScoreDisplay.textContent = `Final Score: ${score}`;
 
                 if (score > highestScore) {
                     highestScore = score;
@@ -98,8 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function startGame() {
         score = 0;
         timeLeft = 60;
-        scoreDisplay.textContent = Score: ${score};
-        timerDisplay.textContent = Time left: ${timeLeft}s;
+        scoreDisplay.textContent = `Score: ${score}`;
+        timerDisplay.textContent = `Time left: ${timeLeft}s`;
         finalScoreDisplay.classList.add('hidden');
         restartButton.classList.add('hidden');
         displayRandomBubble();
